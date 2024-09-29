@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 头部内容 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMeans 聚类算法</title>
+    <!-- 引入最新版本的 Plotly -->
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <!-- 引入自定义的 CSS 文件 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- 主内容 -->
+    <div class="container">
+        <h1>KMeans Clustering Algorithm</h1>
+
+        <!-- 用户输入表单 -->
+        <div class="form-group">
+            <label for="num_clusters">Number of Clusters (k):</label>
+            <input type="number" id="num_clusters" value="3" min="1">
+        </div>
+
+        <div class="form-group">
+            <label for="init_method">Initialization Method:</label>
+            <select id="init_method">
+                <option value="random">Random</option>
+                <option value="Farthest">Farthest First</option>
+                <option value="k-means++">KMeans++</option>
+                <option value="manual">Manual</option>
+            </select>
+        </div>
+
+        <!-- 按钮 -->
+        <div class="buttons">
+            <button id="GeneratenNewDataset">Generate New Dataset</button>
+            <button id="runKMeans" disabled>Run through KMeans</button>
+            <button id="runConvergence" disabled>Run to Convergence</button>
+            <button id="reset">Reset Algorithm</button>
+        </div>
+
+        <!-- 图表区域 -->
+        <div id="graph"></div>
+    </div>
+
+    <!-- 引入外部的 JavaScript 文件 -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
